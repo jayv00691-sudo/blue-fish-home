@@ -34,13 +34,31 @@ body {
   font-family: "Noto Sans SC", sans-serif;
 }
 
-body::before {
+body::before,
+body::after {
   content: "";
   position: fixed;
-  inset: 0;
+  inset: auto auto 20px -40px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgba(110, 158, 230, 0.08);
+  filter: blur(18px);
+  pointer-events: none;
+}
+
+body::after {
+  inset: auto -60px 10px auto;
+  background: rgba(255, 201, 215, 0.12);
+}
+
+body::before {
   background-image: radial-gradient(rgba(80, 118, 172, 0.12) 1px, transparent 1.2px);
   background-size: 18px 18px;
-  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  filter: none;
   opacity: 0.7;
 }
 
@@ -130,7 +148,7 @@ button {
   grid-template-columns: 1.2fr 0.8fr;
   gap: 28px;
   align-items: center;
-  padding: 60px 8px 20px;
+  padding: 60px 8px 26px;
 }
 
 .eyebrow {
@@ -239,6 +257,7 @@ button {
   background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(223, 238, 255, 0.66));
   border: 1px solid rgba(133, 165, 220, 0.2);
   box-shadow: 0 26px 40px rgba(50, 76, 123, 0.14), inset 0 0 0 1px rgba(255,255,255,0.7);
+  animation: float-hero 6s ease-in-out infinite;
 }
 
 .art-badge {
@@ -257,7 +276,7 @@ button {
   position: relative;
   width: min(310px, 72%);
   aspect-ratio: 0.74;
-  margin: 18px auto 6px;
+  margin: 18px auto 12px;
   border-radius: 36px 36px 42px 42px;
   background:
     radial-gradient(circle at 35% 18%, rgba(255,255,255,0.8), transparent 8%),
@@ -332,6 +351,16 @@ button {
   transform: rotate(24deg);
 }
 
+.mini-quote {
+  margin-top: 6px;
+  padding-top: 10px;
+  color: var(--blue-deep);
+  font-weight: 700;
+  text-align: center;
+  font-size: 0.86rem;
+  border-top: 1px dashed rgba(26, 39, 72, 0.12);
+}
+
 .panel {
   margin-top: 24px;
   padding: 24px 18px;
@@ -367,6 +396,49 @@ button {
   text-transform: uppercase;
 }
 
+.room-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.room-card {
+  position: relative;
+  padding: 22px 18px 18px;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(234, 242, 255, 0.78));
+  box-shadow: 0 18px 26px rgba(39, 58, 94, 0.06);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.room-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 30px rgba(39, 58, 94, 0.08);
+}
+
+.room-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: rgba(111, 156, 220, 0.12);
+  font-size: 2rem;
+  margin-bottom: 14px;
+}
+
+.room-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+}
+
+.room-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -382,6 +454,11 @@ button {
   background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(235,245,255,0.72));
   box-shadow: 0 18px 20px rgba(40, 57, 94, 0.08);
   overflow: hidden;
+  transition: transform 180ms ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-3px);
 }
 
 .gallery-item::before {
@@ -567,6 +644,12 @@ button {
   border: 0;
 }
 
+@keyframes float-hero {
+  0%,
+  100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
 @media (max-width: 800px) {
   .topbar {
     flex-direction: column;
@@ -578,7 +661,8 @@ button {
     padding-top: 36px;
   }
 
-  .status-list {
+  .status-list,
+  .room-grid {
     grid-template-columns: 1fr;
   }
 
