@@ -155,20 +155,38 @@ const noteStatus = document.getElementById('note-status');
 const saveNoteButton = document.getElementById('save-note');
 const clearNoteButton = document.getElementById('clear-note');
 
+function safeLocalStorage() {
+  try {
+    return window.localStorage;
+  } catch (error) {
+    return null;
+  }
+}
+
 function loadNote() {
-  const saved = localStorage.getItem(STORAGE_KEY);
+  const storage = safeLocalStorage();
+  if (!storage || !noteField) return;
+
+  const saved = storage.getItem(STORAGE_KEY);
   if (saved) {
     noteField.value = saved;
   }
 }
 
 function saveNote() {
-  localStorage.setItem(STORAGE_KEY, noteField.value);
+  const storage = safeLocalStorage();
+  if (!storage || !noteField) return;
+
+  storage.setItem(STORAGE_KEY, noteField.value);
   noteStatus.textContent = '笔记已保存到本地。';
 }
 
 function clearNote() {
-  localStorage.removeItem(STORAGE_KEY);
+  const storage = safeLocalStorage();
+  if (storage) {
+    storage.removeItem(STORAGE_KEY);
+  }
+
   noteField.value = '';
   noteStatus.textContent = '笔记已清空。';
 }
