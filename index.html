@@ -3,20 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="萌宠集体小窝：每个角色都有自己的房间、收藏、日记和笔记。" />
+    <meta name="description" content="萌宠集体小窝：每个角色都有自己的房间、收藏、日记和私人笔记。" />
     <title>萌宠集体小窝</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800;900&family=Zhi+Mang+Xing&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="bubble bubble-a">✦</div><div class="bubble bubble-b">✧</div>
     <div class="page-shell">
       <header class="topbar">
-        <a class="brand" href="#home"><span class="brand-mark">🏡</span><span>萌宠集体小窝</span></a>
+        <a class="brand" href="#home" aria-label="回到首页">
+          <span class="brand-mark">🏡</span>
+          <span>萌宠集体小窝</span>
+        </a>
+
         <nav class="nav" aria-label="主导航">
-          <a href="#home">首页</a><a href="#residents">小窝成员</a><a href="#space">公共客厅</a><a href="#diary">日记</a><a href="#notes">笔记</a>
+          <a href="#home">首页</a>
+          <a href="#residents">成员</a>
+          <a href="#community">公共空间</a>
+          <a href="#rooms">房间</a>
         </nav>
       </header>
 
@@ -24,40 +30,119 @@
         <section id="home" class="hero">
           <div class="hero-copy">
             <p class="eyebrow">MOMO PET COMMUNITY</p>
-            <h1>欢迎来到<br /><span>萌宠集体小窝</span></h1>
-            <p class="lede">这里住着一群拥有自己房间的小家伙。每个角色都有独特的性格、收藏、日记和小秘密，欢迎先认识它们，再去它们的房间坐坐。</p>
-            <div class="cta-row"><a class="button primary" href="#residents">认识小窝成员</a><a class="button ghost" href="#space">去公共客厅</a></div>
-            <div class="community-status"><span class="online-dot"></span><strong id="resident-count">4 位居民</strong><span>正在小窝里生活</span></div>
+            <h1>欢迎来到<br />萌宠集体小窝</h1>
+            <p class="lede">
+              这里住着一群有自己房间的小宠物。每个角色都有自己的收藏、日记、习惯和小秘密。
+              它们生活在同一个温暖的小窝里，但每个人都保留着属于自己的世界。
+            </p>
+            <div class="cta-row">
+              <a class="button primary" href="#residents">认识成员</a>
+              <a class="button ghost" href="#community">看看公共空间</a>
+            </div>
+            <div class="community-status">
+              <span class="online-dot"></span>
+              <span><strong>4 位居民</strong> 正在小窝里生活</span>
+            </div>
           </div>
-          <div class="home-scene" aria-label="萌宠共同生活的小窝">
-            <div class="sun">☼</div><div class="cloud cloud-one">☁</div><div class="cloud cloud-two">☁</div>
-            <div class="house"><div class="roof"></div><div class="window window-one">🐱</div><div class="window window-two">🐋</div><div class="door">🚪</div><div class="house-sign">MOMO HOME</div></div>
-            <div class="scene-pets"><span>🐱</span><span>🐋</span><span>🐰</span><span>🦊</span></div>
+
+          <div class="home-scene" aria-label="小窝场景">
+            <div class="sun">☼</div>
+            <div class="cloud cloud-one">☁</div>
+            <div class="cloud cloud-two">☁</div>
+            <div class="house">
+              <div class="roof"></div>
+              <div class="window window-left">🐱</div>
+              <div class="window window-right">🐋</div>
+              <div class="door">🚪</div>
+              <div class="house-sign">MOMO HOME</div>
+            </div>
+            <div class="pet-row"><span>🐱</span><span>🐋</span><span>🐰</span><span>🦊</span></div>
           </div>
         </section>
 
-        <section id="residents" class="section-block">
-          <div class="section-head"><div><p class="eyebrow">OUR RESIDENTS</p><h2>小窝成员</h2></div><span class="chip">点开进入它的房间</span></div>
+        <section id="residents" class="panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">OUR RESIDENTS</p>
+              <h2>小窝成员</h2>
+            </div>
+            <span class="chip">选择一个角色</span>
+          </div>
           <div id="resident-grid" class="resident-grid"></div>
         </section>
 
-        <section id="space" class="section-block common-space">
-          <div class="section-head"><div><p class="eyebrow">COMMON SPACE</p><h2>公共客厅</h2></div><span class="chip">大家一起生活的地方</span></div>
-          <div class="space-grid"><article><span>🛋️</span><h3>会客厅</h3><p>大家会在这里碰面、聊天，也会把今天发生的小事分享出来。</p></article><article><span>🌱</span><h3>公共花园</h3><p>每个角色都可以在这里留下自己的小植物和正在长大的愿望。</p></article><article><span>📮</span><h3>留言墙</h3><p>把想对小窝成员说的话写下来，它们会在各自的房间里读到。</p></article></div>
+        <section id="community" class="panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">COMMUNITY</p>
+              <h2>公共空间</h2>
+            </div>
+            <span class="chip">大家一起生活</span>
+          </div>
+          <div class="community-grid">
+            <article class="feature-card">
+              <span>🛋️</span>
+              <h3>会客厅</h3>
+              <p>每天晚上，大家会在这里聊天、分享和放松。</p>
+            </article>
+            <article class="feature-card">
+              <span>🌱</span>
+              <h3>花园</h3>
+              <p>每个角色都有自己的小花盆，记录自己的成长。</p>
+            </article>
+            <article class="feature-card">
+              <span>📮</span>
+              <h3>留言墙</h3>
+              <p>大家会把想说的话、好心情和小愿望写下来。</p>
+            </article>
+          </div>
         </section>
 
-        <section id="character-space" class="section-block character-space">
-          <div class="selected-head"><div class="selected-avatar" id="selected-avatar">🐋</div><div><p class="eyebrow">CURRENT ROOM</p><h2 id="selected-title">鲸鱼娘的蓝色小窝</h2><p id="selected-intro" class="selected-intro"></p></div><span id="selected-mood" class="mood-badge">开心</span></div>
-          <div class="room-tabs"><button class="room-tab active" data-room-tab="collection">收藏</button><button class="room-tab" data-room-tab="diary">日记</button><button class="room-tab" data-room-tab="notes">私人笔记</button></div>
-          <div id="collection-view" class="room-view"><div id="gallery" class="gallery"></div></div>
-          <div id="diary-view" class="room-view hidden"><div id="diary-list" class="diary-list"></div></div>
-          <div id="notes-view" class="room-view hidden"><div class="notes-area"><p class="privacy-note">🔒 这是当前角色的私人草稿本，内容只保存在你当前浏览器中。</p><textarea id="private-note" rows="9" placeholder="以这个角色的视角，写下今天想留下的内容……"></textarea><div class="note-actions"><button id="save-note" class="button primary">保存笔记</button><button id="clear-note" class="button ghost">清空</button></div><p id="note-status" class="note-status"></p></div></div>
-        </section>
+        <section id="rooms" class="panel">
+          <div class="selected-header">
+            <div class="selected-avatar" id="selected-avatar">🐋</div>
+            <div>
+              <p class="eyebrow">CURRENT ROOM</p>
+              <h2 id="selected-name">鲸鱼娘的蓝色小窝</h2>
+              <p id="selected-intro" class="selected-intro"></p>
+            </div>
+            <span id="mood-badge" class="mood-badge">开心</span>
+          </div>
 
-        <section id="about" class="section-block about"><p class="eyebrow">ABOUT THE HOME</p><h2>每个小窝，都是一个完整的角色世界</h2><p>这里不是把角色放在同一张展示墙上，而是让它们住在同一个社区里。你可以选择一个角色，进入它的房间，看看它喜欢什么、最近在想什么，以及它没有对所有人说的悄悄话。</p></section>
+          <div class="tab-bar" aria-label="角色房间切换">
+            <button class="tab active" data-tab="collection" type="button">收藏</button>
+            <button class="tab" data-tab="diary" type="button">日记</button>
+            <button class="tab" data-tab="notes" type="button">私人笔记</button>
+          </div>
+
+          <div id="collection-view" class="room-view">
+            <div id="gallery" class="gallery"></div>
+          </div>
+
+          <div id="diary-view" class="room-view hidden">
+            <div id="diary-list" class="diary-list"></div>
+          </div>
+
+          <div id="notes-view" class="room-view hidden">
+            <div class="notes-box">
+              <p class="notes-tip">🔒 这个草稿本只保存在当前浏览器里，属于这个角色的私密记录。</p>
+              <textarea id="private-note" rows="10" placeholder="写下今天的心情、想法和小秘密……"></textarea>
+              <div class="note-actions">
+                <button id="save-note" class="button primary" type="button">保存笔记</button>
+                <button id="clear-note" class="button ghost" type="button">清空</button>
+              </div>
+              <p id="note-status" class="note-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </section>
       </main>
-      <footer class="site-footer"><span>🏡 萌宠集体小窝</span><span>每个角色，都有自己的房间。</span></footer>
+
+      <footer class="site-footer">
+        <span>🏡 萌宠集体小窝</span>
+        <span>每个角色，都有自己的房间</span>
+      </footer>
     </div>
+
     <script src="app.js"></script>
   </body>
 </html>
