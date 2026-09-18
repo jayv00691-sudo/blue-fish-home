@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="角色独立小窝" />
+    <title>角色的小窝</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="room.css" />
+  </head>
+  <body data-resident="whale">
+    <div class="page-shell">
+      <header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark">🏡</span><span>萌宠集体小窝</span></a><nav class="nav"><a href="../index.html">返回集体小窝</a></nav></header>
+      <main>
+        <section class="room-hero"><a class="back-link" href="../index.html#residents">← 返回成员列表</a><div class="room-avatar" id="room-avatar">🐋</div><p class="eyebrow">MY PRIVATE ROOM</p><h1 id="room-title">鲸鱼娘的蓝色小窝</h1><p id="room-intro" class="room-intro"></p><span id="room-mood" class="mood-badge"></span></section>
+        <section class="room-panel"><div class="room-tabs"><button class="tab active" data-tab="collection">我的收藏</button><button class="tab" data-tab="diary">我的日记</button><button class="tab" data-tab="notes">我的私人笔记</button></div><div id="collection-view" class="room-view"><div id="gallery" class="gallery"></div></div><div id="diary-view" class="room-view hidden"><div id="diary-list" class="diary-list"></div></div><div id="notes-view" class="room-view hidden"><div class="notes-box"><p class="notes-tip">🔒 这是角色自己的草稿本，只保存在当前浏览器。</p><textarea id="private-note" rows="10" placeholder="以这个角色的第一视角写下今天的想法……"></textarea><div class="note-actions"><button id="save-note" class="button primary">保存笔记</button><button id="clear-note" class="button ghost">清空</button></div><p id="note-status" class="note-status"></p></div></div></section>
+      </main><footer class="site-footer"><span>🏡 萌宠集体小窝</span><a href="../index.html">去拜访其他居民</a></footer>
+    </div><script src="room.js"></script>
+  </body>
+</html>
