@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="萌宠集体小窝：每个角色都有独立房间。" />
+    <meta name="description" content="萌宠集体小窝：走进角色大厅，选择一位小伙伴的房间。" />
     <title>萌宠集体小窝</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,27 +11,36 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="page-shell">
-      <header class="topbar">
-        <a class="brand" href="index.html"><span class="brand-mark">🏡</span><span>萌宠集体小窝</span></a>
-        <nav class="nav" aria-label="主导航"><a href="index.html">首页</a><a href="#residents">成员</a><a href="#community">公共空间</a></nav>
-      </header>
-      <main>
-        <section id="home" class="hero">
-          <div class="hero-copy">
-            <p class="eyebrow">MOMO PET COMMUNITY</p>
-            <h1><span id="typewriter-title">欢迎来到萌宠集体小窝</span><span class="typing-cursor" aria-hidden="true">|</span></h1>
-            <p class="lede">这里住着一群有自己房间的小宠物。每个角色都有独立的收藏、日记、习惯和小秘密，请点击成员卡片，进入它们各自的小窝。</p>
-            <div class="cta-row"><a class="button primary" href="#residents">认识成员</a><a class="button ghost" href="#community">公共空间</a></div>
-            <div class="community-status"><span class="online-dot"></span><span><strong>4 位居民</strong> 正在小窝里生活</span></div>
+    <main>
+      <section class="landing" id="landing" aria-label="欢迎页">
+        <div class="landing-art" aria-hidden="true">
+          <div class="sparkle sparkle-one">✦</div>
+          <div class="sparkle sparkle-two">✦</div>
+          <div class="moon">☾</div>
+          <div class="animal">🐰</div>
+          <div class="grass">〰 〰 〰</div>
+        </div>
+
+        <button class="landing-title" id="enter-hall" type="button" aria-label="点击进入集体大厅">
+          <span class="title-kicker">MOMO PET COMMUNITY</span>
+          <strong>萌宠集体小窝</strong>
+          <span class="title-hint">点击进入集体大厅 <i aria-hidden="true">↗</i></span>
+        </button>
+      </section>
+
+      <section class="hall hidden" id="hall" aria-labelledby="hall-title">
+        <header class="hall-header">
+          <div>
+            <p class="eyebrow">WELCOME TO THE HALL</p>
+            <h1 id="hall-title">集体大厅</h1>
+            <p class="hall-intro">选择一位住户，进入它的小窝。</p>
           </div>
-          <div class="home-scene" aria-label="小窝场景"><div class="sun">☼</div><div class="cloud cloud-one">☁</div><div class="cloud cloud-two">☁</div><div class="house"><div class="roof"></div><div class="window window-left">🐱</div><div class="window window-right">🐋</div><div class="door">🚪</div><div class="house-sign">MOMO HOME</div></div><div class="pet-row"><span>🐱</span><span>🐋</span><span>🐰</span><span>🦊</span></div></div>
-        </section>
-        <section id="residents" class="panel"><div class="section-head"><div><p class="eyebrow">OUR RESIDENTS</p><h2>小窝成员</h2></div><span class="chip">点击进入独立房间</span></div><div id="resident-grid" class="resident-grid"></div></section>
-        <section id="community" class="panel"><div class="section-head"><div><p class="eyebrow">COMMUNITY</p><h2>公共空间</h2></div><span class="chip">大家一起生活</span></div><div class="community-grid"><article class="feature-card"><span>🛋️</span><h3>会客厅</h3><p>大家会在这里聊天、分享和放松。</p></article><article class="feature-card"><span>🌱</span><h3>花园</h3><p>每个角色都有自己的小花盆和愿望。</p></article><article class="feature-card"><span>📮</span><h3>留言墙</h3><p>把想对小窝成员说的话留下来。</p></article></div></section>
-      </main>
-      <footer class="site-footer"><span>🏡 萌宠集体小窝</span><span>每个角色，都有自己的房间</span></footer>
-    </div>
+          <button class="back-button" id="back-home" type="button">← 返回封面</button>
+        </header>
+        <div class="resident-grid" id="resident-grid"></div>
+      </section>
+    </main>
+
     <script src="app.js"></script>
   </body>
 </html>
